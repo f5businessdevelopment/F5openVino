@@ -11,5 +11,4 @@ variable "region" {
 
 variable "allow_from" {
   description = "IP Address/Network to allow traffic from your machine (i.e. 192.0.2.11/32)"
-default = "73.254.158.216/32"
 }
