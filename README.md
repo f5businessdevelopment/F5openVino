@@ -6,3 +6,6 @@ Here's the architecture diagram for the setup: model servers run within containe
 NGINX Plus offers a dashboard that displays real-time insights into the health status of the model servers, including metrics such as latency, traffic rate, and other relevant details.
 
 ![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/447028cc-8835-42c6-bf4b-2917ae842abd)
+
+##How to use this repository
+
