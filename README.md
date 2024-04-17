@@ -13,7 +13,7 @@ NGINX Plus offers a dashboard that displays real-time insights into the health s
 
 ```cd F5openVino/terraformfiles```
 
-Check the ```variables.tf``` file adjust the values as per your requirements, Let the region be default ```us-west-2`` as the AMI is tied to that region.
+Check the ```variables.tf``` file adjust the values as per your requirements, Let the region be default ```us-west-2``` as the AMI is tied to that region.
 
 ```
 terraform init
