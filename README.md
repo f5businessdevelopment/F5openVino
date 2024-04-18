@@ -39,7 +39,11 @@ ssh -i terraform-20240418005151594500000001.pem ec2-user@PUBLIC_IP_ADDRESS0
 sudo yum update -y
 sudo yum install docker -y
 sudo systemctl start docker
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/be09ff2f-109e-44b1-b293-1443e992a95a)
+
 ```
 
-![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/5f0bf86f-74b1-48f6-a325-0968a890602c)
 
