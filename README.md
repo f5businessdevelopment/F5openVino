@@ -61,7 +61,6 @@ for ((i = 0; i < ${#models[@]}; i++)); do
 done
 
 echo "Deployment complete."
-
 EOF
 ```
 
