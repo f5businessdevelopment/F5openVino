@@ -68,6 +68,7 @@ cat <<EOF > s.sh
 # Stop and remove containers
 docker ps -q | xargs docker stop
 docker ps -a -q | xargs docker rm
+docker ps
 EOF
 ```
 
