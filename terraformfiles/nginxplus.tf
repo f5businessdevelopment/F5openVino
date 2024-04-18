@@ -1,5 +1,5 @@
 resource "aws_instance" "nginx-plus" {
-  count = 2
+  count                  = 2
   ami                    = "ami-0f40f091219a2e61f"
   instance_type          = "c5.large"
   subnet_id              = module.vpc.public_subnets[0]
@@ -11,9 +11,19 @@ resource "aws_instance" "nginx-plus" {
     Env  = "scs-env"
   }
 }
+
+resource "aws_eip" "nginx-plus-0" {
+  instance = aws_instance.nginx-plus.0.id
+  domain   = "vpc"
+}
+resource "aws_eip" "nginx-plus-1" {
+  instance = aws_instance.nginx-plus.1.id
+  domain   = "vpc"
+}
+
 output "To_SSH_nginx-plus" {
   value = [
-    "ssh -i ${aws_key_pair.demo.key_name}.pem ec2-user@${aws_instance.nginx-plus.0.public_ip}",
-    "ssh -i ${aws_key_pair.demo.key_name}.pem ec2-user@${aws_instance.nginx-plus.1.public_ip}"
+    "ssh -i ${aws_key_pair.demo.key_name}.pem ec2-user@${aws_instance.nginx-plus[0].public_ip}",
+    "ssh -i ${aws_key_pair.demo.key_name}.pem ec2-user@${aws_instance.nginx-plus[1].public_ip}"
   ]
 }
