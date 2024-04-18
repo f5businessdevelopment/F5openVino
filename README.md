@@ -46,6 +46,8 @@ sudo systemctl start docker
 cat <<EOF > deploy.sh
 #!/bin/bash
 
+echo "Starting deployment script..."
+
 # Define models and ports
 models=("resnet" "yolo" "ssd")
 ports=(9001 9002 9003)
@@ -54,8 +56,12 @@ ports=(9001 9002 9003)
 for ((i = 0; i < ${#models[@]}; i++)); do
     model_name="${models[$i]}"
     port="${ports[$i]}"
+    echo "Creating container for model: $model_name, port: $port"
     docker run -d -u 1000 --rm -v /home/ec2-user/model:/model -p $port:$port openvino/model_server:latest --model_name $model_name --model_path /model --port $port
 done
+
+echo "Deployment complete."
+
 EOF
 ```
 
