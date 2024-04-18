@@ -33,3 +33,13 @@ NEXT ssh into the VM
 ```
 ssh -i terraform-20240418005151594500000001.pem ec2-user@PUBLIC_IP_ADDRESS0
 ```
+### Download Docker on the EC2
+
+```
+sudo yum update -y
+sudo yum install docker -y
+sudo systemctl start docker
+```
+
+![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/5f0bf86f-74b1-48f6-a325-0968a890602c)
+
