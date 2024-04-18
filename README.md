@@ -43,7 +43,7 @@ sudo systemctl start docker
  
 ### Compose script to deploy model servers
 ```
-cat <<EOF > models.sh
+cat <<EOF > deploy.sh
 #!/bin/bash
 
 # Define models and ports
