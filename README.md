@@ -41,7 +41,24 @@ sudo yum install docker -y
 sudo systemctl start docker
 ```
  
-### Deploy 
+### Compose script to deploy model servers
+
+cat <<EOF > models.sh
+#!/bin/bash
+
+# Define models and ports
+models=("resnet" "yolo" "ssd")
+ports=(9001 9002 9003)
+
+# Create containers
+for i in "${!models[@]}"; do
+    model_name="${models[$i]}"
+    port="${ports[$i]}"
+    docker run -d -u $(id -u) --rm -v ${PWD}/model:/model -p $port:$port openvino/model_server:latest \
+    --model_name $model_name --model_path /model --port $port
+done
+EOF
+#
 
 
 
