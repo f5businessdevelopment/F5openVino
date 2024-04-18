@@ -20,3 +20,16 @@ terraform init
 terraform plan
 terraform apply --auto-approve
 ```
+You will see update like as shown below ....
+```
+Outputs:
+
+To_SSH_nginx-plus = [
+  "ssh -i terraform-20240418005151594500000001.pem ec2-user@PUBLIC_IP_ADDRESS0"
+  "ssh -i terraform-20240418005151594500000001.pem ec2-user@PUBLIC_IP_ADDRESS1"
+]
+```
+NEXT ssh into the VM 
+```
+ssh -i terraform-20240418005151594500000001.pem ec2-user@PUBLIC_IP_ADDRESS0
+```
