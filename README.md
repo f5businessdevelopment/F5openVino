@@ -65,7 +65,7 @@ EOF
 
 ```
 
-### In case you want to clean up follow this script
+### In case you want to clean up, follow this script
 ```
 cat <<EOF > s.sh
 #!/bin/bash
