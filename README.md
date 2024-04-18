@@ -57,7 +57,6 @@ for i in "${!models[@]}"; do
     docker run -d -u $(id -u) --rm -v ${PWD}/model:/model -p $port:$port openvino/model_server:latest \
     --model_name $model_name --model_path /model --port $port
 done
-
 EOF
 ```
 
