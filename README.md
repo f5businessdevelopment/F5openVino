@@ -42,7 +42,7 @@ sudo systemctl start docker
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/be09ff2f-109e-44b1-b293-1443e992a95a)
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 ```
 
