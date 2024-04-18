@@ -11,6 +11,7 @@ services:
       - ./models:/models
     ports:
       - "9001:9001"
+
   resnet2:
     image: openvino/model_server:latest
     command: >
@@ -22,4 +23,77 @@ services:
       - ./models:/models
     ports:
       - "9002:9002"
-  # Add more services for additional containers if needed
+
+  # Add more services for additional containers
+  resnet3:
+    image: openvino/model_server:latest
+    command: >
+      --model_name=resnet
+      --model_path=/models/resnet50
+      --layout=NHWC:NCHW
+      --port=9003
+    volumes:
+      - ./models:/models
+    ports:
+      - "9003:9003"
+
+  resnet4:
+    image: openvino/model_server:latest
+    command: >
+      --model_name=resnet
+      --model_path=/models/resnet50
+      --layout=NHWC:NCHW
+      --port=9004
+    volumes:
+      - ./models:/models
+    ports:
+      - "9004:9004"
+
+  resnet5:
+    image: openvino/model_server:latest
+    command: >
+      --model_name=resnet
+      --model_path=/models/resnet50
+      --layout=NHWC:NCHW
+      --port=9005
+    volumes:
+      - ./models:/models
+    ports:
+      - "9005:9005"
+
+  resnet6:
+    image: openvino/model_server:latest
+    command: >
+      --model_name=resnet
+      --model_path=/models/resnet50
+      --layout=NHWC:NCHW
+      --port=9006
+    volumes:
+      - ./models:/models
+    ports:
+      - "9006:9006"
+
+  resnet7:
+    image: openvino/model_server:latest
+    command: >
+      --model_name=resnet
+      --model_path=/models/resnet50
+      --layout=NHWC:NCHW
+      --port=9007
+    volumes:
+      - ./models:/models
+    ports:
+      - "9007:9007"
+
+  resnet8:
+    image: openvino/model_server:latest
+    command: >
+      --model_name=resnet
+      --model_path=/models/resnet50
+      --layout=NHWC:NCHW
+      --port=9008
+    volumes:
+      - ./models:/models
+    ports:
+      - "9008:9008"
+
