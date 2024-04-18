@@ -43,7 +43,14 @@ sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+
+### Do docker pull
+```
+mkdir dock #create directory
+sudo docker pull openvino/model_server
 
 ```
+
 
 
