@@ -60,5 +60,14 @@ done
 EOF
 ```
 
+### In case you want to clean up follow this script
+```
+cat <<EOF > models.sh
+#!/bin/bash
 
+# Stop and remove containers
+docker ps -q | xargs docker stop
+docker ps -a -q | xargs docker rm
+EOF
+```
 
