@@ -43,7 +43,7 @@ sudo systemctl start docker
  
 ### Compose script to deploy model servers
 ```
-cat <<EOF > deploy.sh
+cat <<'EOF' > deploy.sh
 #!/bin/bash
 
 echo "Starting deployment script..."
@@ -62,6 +62,7 @@ done
 
 echo "Deployment complete."
 EOF
+
 ```
 
 ### In case you want to clean up follow this script
