@@ -62,7 +62,7 @@ EOF
 
 ### In case you want to clean up follow this script
 ```
-cat <<EOF > models.sh
+cat <<EOF > s.sh
 #!/bin/bash
 
 # Stop and remove containers
