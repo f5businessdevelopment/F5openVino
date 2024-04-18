@@ -42,7 +42,7 @@ sudo systemctl start docker
 ```
  
 ### Compose script to deploy model servers
-
+```
 cat <<EOF > models.sh
 #!/bin/bash
 
@@ -58,7 +58,7 @@ for i in "${!models[@]}"; do
     --model_name $model_name --model_path /model --port $port
 done
 EOF
-#
+```
 
 
 
