@@ -40,7 +40,14 @@ sudo yum update -y
 sudo yum install docker -y
 sudo systemctl start docker
 ```
- 
+
+### Download model files
+```
+wget https://storage.openvinotoolkit.org/repositories/open_model_zoo/2022.1/models_bin/2/resnet50-binary-0001/FP32-INT1/resnet50-binary-0001.{xml,bin} -P models/resnet50/1
+
+```
+You can refer to documentation here https://docs.openvino.ai/nightly/ovms_docs_deploying_server.html
+
 ### Compose script to deploy model servers
 ```
 cat <<'EOF' > deploy.sh
@@ -64,6 +71,16 @@ echo "Deployment complete."
 EOF
 
 ```
+You can also use docker-compose to deploy
+
+```
+[ec2-user@ip-10-0-0-19 dock]$ sudo docker-compose up
+WARN[0000] /home/ec2-user/dock/docker-compose.yml: `version` is obsolete 
+[+] Running 8/0
+ ✔ Container dock-resnet3-1  Created                                                                                  0.0s 
+ ✔ Container dock-resnet4-1  Created                                                                                  0.0s 
+ ✔ Container dock-resnet5-1  Created                            
+```
 
 ### In case you want to clean up, follow this script
 ```
@@ -86,6 +103,8 @@ pip install numpy
 pip install ovmsclient
 pip install urllib3==1.26.7
 ```
+
+### Prepare Data for Serving
 
 
 ### NGINX Plus proxy tests with gRPC & REST using SSL
