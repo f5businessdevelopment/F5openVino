@@ -90,7 +90,7 @@ wrk -t12 -c400 -d30s https://10.0.0.228
 - `-d30s`: Specifies the duration of the test, in this case, 30 seconds.
 - `https://10.0.0.228`: The URL to target for sending HTTP requests.
 
-### Output Documentation for Test on `https://10.0.0.228`:
+### Output Documentation for Test on `https://10.0.0.228` gRPC SSL:
 
 ```
 Running 30s test @ https://10.0.0.228
@@ -117,7 +117,7 @@ Transfer/sec:      1.32MB
 - **Requests/sec**: Average number of requests processed per second.
 - **Transfer/sec**: Average data transfer rate per second.
 
-### Output Documentation for Test on `https://10.0.0.228:8443`:
+### Output Documentation for Test on `https://10.0.0.228:8443`REST SSL:
 
 ```
 Running 30s test @ https://10.0.0.228:8443
