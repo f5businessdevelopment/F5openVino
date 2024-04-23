@@ -52,7 +52,7 @@ https://storage.openvinotoolkit.org/repositories/open_model_zoo/2022.1/models_bi
 This URL provides both the XML and BIN files for the model.
 -P models/resnet50/1: Option specifying the directory where the downloaded files will be saved. Adjust the path as needed.
 
-You can refer to the documentation here https://docs.openvino.ai/nightly/ovms_docs_deploying_server.html
+You can refer here https://docs.openvino.ai/nightly/ovms_docs_deploying_server.html  for additional documentation if required.
 
 ### Compose script to deploy model servers
 ```
