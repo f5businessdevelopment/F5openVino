@@ -139,7 +139,7 @@ python3 predict.py zebra.jpg
 
 zebra
 ### NGINX Plus Dashboard
-To enable dashboard make sure you have configured dashboard.conf, you can pickup file from https://github.com/f5businessdevelopment/F5openVino/blob/main/dashboard.conf
+To enable the dashboard make sure you have configured the dashboard.conf, you can pick up file from https://github.com/f5businessdevelopment/F5openVino/blob/main/dashboard.conf
 ```
  /etc/nginx/config.d/dashboard.conf
 sudo systemctl restart nginx
@@ -147,7 +147,8 @@ sudo nginx -t
 ```
 ![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/91bb339e-5d8f-4aed-9dc5-f0398e788010)
 
-
+### For NGINX PLUS HA
+For NGINX PLUS HA capabilities, setup each of the instance as referred in https://www.nginx.com/products/nginx/high-availability/
 ### NGINX Plus proxy tests with gRPC & REST using SSL
 
 ### `wrk` Command Documentation:
