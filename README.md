@@ -142,6 +142,8 @@ zebra
 To enable dashboard make sure you have configured dashboard.conf, you can pickup file from https://github.com/f5businessdevelopment/F5openVino/blob/main/dashboard.conf
 ```
  /etc/nginx/config.d/dashboard.conf
+sudo systemctl restart nginx
+sudo nginx -t
 ```
 ![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/91bb339e-5d8f-4aed-9dc5-f0398e788010)
 
