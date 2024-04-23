@@ -79,8 +79,6 @@ EOF
 
 ### Nginx proxy tests with gRPC & REST using SSL
 
-Sure, here's a documentation of the `wrk` command and its output:
-
 ### `wrk` Command Documentation:
 
 ```bash
