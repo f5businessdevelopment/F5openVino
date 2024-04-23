@@ -46,7 +46,10 @@ sudo systemctl start docker
 wget https://storage.openvinotoolkit.org/repositories/open_model_zoo/2022.1/models_bin/2/resnet50-binary-0001/FP32-INT1/resnet50-binary-0001.{xml,bin} -P models/resnet50/1
 
 ```
-You can refer to documentation here https://docs.openvino.ai/nightly/ovms_docs_deploying_server.html
+- wget: Command-line utility for downloading files from the web.
+https://storage.openvinotoolkit.org/repositories/open_model_zoo/2022.1/models_bin/2/resnet50-binary-0001/FP32-INT1/resnet50-binary-0001.{xml,bin}: URL pointing to the ResNet50 model files. This URL provides both the XML and BIN files for the model.
+-P models/resnet50/1: Option specifying the directory where the downloaded files will be saved. Adjust the path as needed.
+You can refer to the documentation here https://docs.openvino.ai/nightly/ovms_docs_deploying_server.html
 
 ### Compose script to deploy model servers
 ```
