@@ -131,7 +131,12 @@ output = client.predict({"0": img}, "resnet")
 result_index = np.argmax(output[0])
 print(imagenet_classes[result_index])' >> predict.py
 ```
-python predict.py
+
+```
+python3 predict.py zebra.jpg
+
+```
+
 zebra
 
 
