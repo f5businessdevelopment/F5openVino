@@ -139,7 +139,7 @@ python3 predict.py zebra.jpg
 
 zebra
 ### NGINX Plus Dashboard
-To enable dashboard make sure you have configured dashboard.conf, you can pickup file from link
+To enable dashboard make sure you have configured dashboard.conf, you can pickup file from https://github.com/f5businessdevelopment/F5openVino/blob/main/dashboard.conf
 ```
  /etc/nginx/config.d/dashboard.conf
 ```
