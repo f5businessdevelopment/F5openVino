@@ -47,8 +47,10 @@ wget https://storage.openvinotoolkit.org/repositories/open_model_zoo/2022.1/mode
 
 ```
 - wget: Command-line utility for downloading files from the web.
-https://storage.openvinotoolkit.org/repositories/open_model_zoo/2022.1/models_bin/2/resnet50-binary-0001/FP32-INT1/resnet50-binary-0001.{xml,bin}: URL pointing to the ResNet50 model files. This URL provides both the XML and BIN files for the model.
+https://storage.openvinotoolkit.org/repositories/open_model_zoo/2022.1/models_bin/2/resnet50-binary-0001/FP32-INT1/resnet50-binary-0001.{xml,bin}: URL pointing to the ResNet50 model files.
+This URL provides both the XML and BIN files for the model.
 -P models/resnet50/1: Option specifying the directory where the downloaded files will be saved. Adjust the path as needed.
+
 You can refer to the documentation here https://docs.openvino.ai/nightly/ovms_docs_deploying_server.html
 
 ### Compose script to deploy model servers
@@ -107,7 +109,30 @@ pip install ovmsclient
 pip install urllib3==1.26.7
 ```
 
-### Prepare Data for Serving
+### Download input files: an image and a label mapping file
+```
+wget https://raw.githubusercontent.com/openvinotoolkit/model_server/main/demos/common/static/images/zebra.jpeg
+wget https://raw.githubusercontent.com/openvinotoolkit/model_server/main/demos/common/python/classes.py
+pip3 install ovmsclient
+```
+
+### Run Prediction
+```
+echo 'import numpy as np
+from classes import imagenet_classes
+from ovmsclient import make_grpc_client
+
+client = make_grpc_client("10.0.0.228:9001") # Is the gRPC NGINX plus load balancer IP and port
+
+with open("zebra.jpeg", "rb") as f:
+   img = f.read()
+
+output = client.predict({"0": img}, "resnet")
+result_index = np.argmax(output[0])
+print(imagenet_classes[result_index])' >> predict.py
+```
+python predict.py
+zebra
 
 
 ### NGINX Plus proxy tests with gRPC & REST using SSL
