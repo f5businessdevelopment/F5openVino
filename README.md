@@ -77,7 +77,7 @@ docker ps
 EOF
 ```
 
-### Nginx proxy tests with gRPC & REST using SSL
+### NGINX Plus proxy tests with gRPC & REST using SSL
 
 ### `wrk` Command Documentation:
 
