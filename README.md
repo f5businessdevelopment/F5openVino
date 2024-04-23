@@ -139,6 +139,8 @@ python3 predict.py zebra.jpg
 
 zebra
 
+![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/91bb339e-5d8f-4aed-9dc5-f0398e788010)
+
 
 ### NGINX Plus proxy tests with gRPC & REST using SSL
 
