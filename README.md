@@ -77,6 +77,17 @@ docker ps
 EOF
 ```
 
+### setup venv
+```
+pip install virtualenv
+virtualenv venv
+source venv/bin/activate
+pip install numpy
+pip install ovmsclient
+pip install urllib3==1.26.7
+```
+
+
 ### NGINX Plus proxy tests with gRPC & REST using SSL
 
 ### `wrk` Command Documentation:
