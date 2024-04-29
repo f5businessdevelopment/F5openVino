@@ -11,14 +11,6 @@ module "vpc" {
 
   enable_nat_gateway = true
 }
-resource "aws_eip" "nginx-plus-0" {
-  instance = aws_instance.nginx-plus.0.id
-  vpc      = true
-}
-resource "aws_eip" "nginx-plus-1" {
-  instance = aws_instance.nginx-plus.1.id
-  vpc      = true
-}
 resource "aws_security_group" "f5" {
   name        = "${var.prefix}-f5"
   description = "Allow inbound SSH and HTTPS traffic from my IP"
@@ -37,14 +29,14 @@ resource "aws_security_group" "f5" {
     cidr_blocks = [var.allow_from] # Replace with your laptop's public IP
   }
 
- ingress {
+  ingress {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = [var.allow_from] # Replace with your laptop's public IP
   }
 
-ingress {
+  ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
