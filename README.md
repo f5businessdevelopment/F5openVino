@@ -100,6 +100,14 @@ docker ps
 EOF
 ```
 
+### Configure the Nginx server for proxy, replace with appropriate server name or IP address
+
+```
+ /etc/nginx/config.d/model_server.conf
+sudo systemctl restart nginx
+sudo nginx -t
+```
+
 ### setup venv
 ```
 pip install virtualenv
