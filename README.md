@@ -11,7 +11,7 @@ NGINX Plus offers a dashboard that displays real-time insights into the health s
 
 ```git clone https://github.com/f5businessdevelopment/F5openVino.git```
 
-```cd F5openVino/terraformfiles```
+```cd terraformfiles```
 
 Check the ```variables.tf``` file adjust the values as per your requirements, Let the region be default ```us-west-2``` as the AMI is tied to that region.
 
