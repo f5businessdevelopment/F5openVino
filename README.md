@@ -155,6 +155,7 @@ sudo systemctl restart nginx
 sudo nginx -t
 ```
 ![image](https://github.com/f5businessdevelopment/F5openVino/assets/13858248/91bb339e-5d8f-4aed-9dc5-f0398e788010)
+Make sure to modify the dashboard.conf with appropriate IP address and Port. 
 
 ### For NGINX PLUS HA
 For NGINX PLUS HA capabilities, setup each of the instance as referred in https://www.nginx.com/products/nginx/high-availability/
