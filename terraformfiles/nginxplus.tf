@@ -12,14 +12,12 @@ resource "aws_instance" "nginx-plus" {
   }
 }
 
-resource "aws_eip" "nginx-plus-0" {
-  instance = aws_instance.nginx-plus.0.id
+resource "aws_eip" "nginx-plus" {
+  count = 2
+  instance = aws_instance.nginx-plus[count.index].id
   domain   = "vpc"
 }
-resource "aws_eip" "nginx-plus-1" {
-  instance = aws_instance.nginx-plus.1.id
-  domain   = "vpc"
-}
+
 
 output "To_SSH_nginx-plus" {
   value = [
