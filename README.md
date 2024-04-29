@@ -159,6 +159,7 @@ sudo nginx -t
 ### For NGINX PLUS HA
 For NGINX PLUS HA capabilities, setup each of the instance as referred in https://www.nginx.com/products/nginx/high-availability/
 ### NGINX Plus proxy tests with gRPC & REST using SSL
+Before conducting SSL tests, ensure to utilize the model_server_ssl.conf Nginx configuration when running Nginx for SSL termination.
 
 ### `wrk` Command Documentation:
 
