@@ -1,0 +1,29 @@
+Working Predict.py:
+(venv) [root@wsfd-advnetlab239 summit]# cat predict_image.py
+import numpy as np
+import cv2
+from classes import imagenet_classes
+from ovmsclient import make_grpc_client
+ 
+LB_ADDR = "172.16.3.200:443"
+ 
+# ── CONFIG ──────────────────────────────────────────────────────────────────
+TLS_CONFIG = {
+    "server_cert_path": "/root/summit/server.crt",
+}
+# ─────────────────────────────────────────────────────────────────────────────
+ 
+# 1. Create the gRPC client (one-way TLS)
+client = make_grpc_client(LB_ADDR, tls_config=TLS_CONFIG)
+ 
+# 2. Load & preprocess the image
+img = cv2.imread("zebra.jpeg")
+img = cv2.resize(img, (224, 224)).astype(np.float32)
+img = img.transpose((2, 0, 1))[None, ...]  # NHWC → NCHW
+ 
+# 3. Run inference
+output = client.predict({"0": img}, "resnet50")
+idx = int(np.argmax(output[0]))
+print(imagenet_classes[idx])
+ 
+(venv) [root@wsfd-advnetlab239 summit]#
