@@ -213,6 +213,44 @@ Thread Stats   Avg      Stdev     Max   +/- Stdev
 196507 requests in 30.08s, 124.44MB read
 Socket errors: connect 0, read 0, write 0, timeout 7
 
+### rest.py
+
+```
+cat rest.py 
+import requests
+import numpy as np
+from classes import imagenet_classes
+
+# Define the base URL for the server's REST API
+base_url = "https://ip-10-0-0-228.us-west-2.compute.internal"
+
+# Load TLS configuration
+tls_config = {
+    "client_key_path": "/etc/nginx/certs/client.key",
+    "client_cert_path": "/etc/nginx/certs/client.crt",
+    "server_cert_path": "/etc/nginx/certs/server.crt"
+}
+
+# Read image data
+with open("zebra.jpeg", "rb") as f:
+    img = f.read()
+
+# Prepare data for the request
+data = {"0": img}
+
+# Make a POST request to the server's REST API
+response = requests.post(base_url, data=data, cert=(tls_config["client_cert_path"], tls_config["client_key_path"]), verify=tls_config["server_cert_path"])
+
+# Check if the request was successful
+if response.status_code == 200:
+    output = response.json()
+    result_index = np.argmax(output[0])
+    print(imagenet_classes[result_index])
+else:
+    print("Error:", response.text)
+
+```
+
 Requests/sec:   6532.90
 Transfer/sec:      4.14MB
 ```
