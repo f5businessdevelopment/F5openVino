@@ -1,5 +1,6 @@
-Working Predict.py:
-(venv) [root@wsfd-advnetlab239 summit]# cat predict_image.py
+Working predict.py (Final):
+(venv) [root@wsfd-advnetlab239 summit]# cat predict_with_arg.py
+import argparse
 import numpy as np
 import cv2
 from classes import imagenet_classes
@@ -13,17 +14,35 @@ TLS_CONFIG = {
 }
 # ─────────────────────────────────────────────────────────────────────────────
  
-# 1. Create the gRPC client (one-way TLS)
-client = make_grpc_client(LB_ADDR, tls_config=TLS_CONFIG)
+def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(
+        description="Run ResNet50 inference on an image via OVMS gRPC API"
+    )
+    parser.add_argument(
+        "image_path",
+        help="Path to the input image file",
+    )
+    args = parser.parse_args()
  
-# 2. Load & preprocess the image
-img = cv2.imread("zebra.jpeg")
-img = cv2.resize(img, (224, 224)).astype(np.float32)
-img = img.transpose((2, 0, 1))[None, ...]  # NHWC → NCHW
+    # 1. Create the gRPC client (one-way TLS)
+    client = make_grpc_client(LB_ADDR, tls_config=TLS_CONFIG)
  
-# 3. Run inference
-output = client.predict({"0": img}, "resnet50")
-idx = int(np.argmax(output[0]))
-print(imagenet_classes[idx])
+    # 2. Load & preprocess the image
+    img = cv2.imread(args.image_path)
+    if img is None:
+        raise FileNotFoundError(f"Image '{args.image_path}' not found or could not be opened")
+ 
+    img = cv2.resize(img, (224, 224)).astype(np.float32)
+    img = img.transpose((2, 0, 1))[None, ...]  # NHWC → NCHW
+ 
+    # 3. Run inference
+    output = client.predict({"0": img}, "resnet50")
+    idx = int(np.argmax(output[0]))
+    print(imagenet_classes[idx])
+ 
+ 
+if __name__ == "__main__":
+    main()
  
 (venv) [root@wsfd-advnetlab239 summit]#
